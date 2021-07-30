@@ -2,10 +2,10 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from matplotlib import font_manager
 
-file_path = 'E:\Python Pycharm\练习\数据分析\练习数据\BeijingPM20100101_20151231.csv\BeijingPM20100101_20151231.csv'
+file_path = 'E:\Python Pycharm\练习\数据分析\练习数据\PM2.5\BeijingPM20100101_20151231.csv'
 df = pd.read_csv(file_path)
 pd.set_option('display.max_columns', None)  # 显示全部行
-#  把分开的时间字符串通过PeriodIndex方法转为oandas的时间类型
+#  把分开的时间字符串通过PeriodIndex方法转为pandas的时间类型
 period = pd.PeriodIndex(year=df['year'], month=df['month'], day=df['day'], hour=df['hour'], freq='H')
 df['datatime'] = period
 

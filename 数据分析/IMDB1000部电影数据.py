@@ -30,8 +30,8 @@ x = geners_sum.index
 y = geners_sum.values
 
 plt.barh(x, y, height=0.5, color="cyan")
-plt.xlabel("类型", fontproperties=my_font)
-plt.ylabel("数量", fontproperties=my_font)
+plt.xlabel("数量", fontproperties=my_font)
+plt.ylabel("类型", fontproperties=my_font)
 plt.title("5000部电影类型数量统计", fontproperties=my_font)
 plt.xticks(range(0, 3000, 100))
 
@@ -39,7 +39,8 @@ plt.grid(alpha=0.6)
 plt.savefig("./5000部电影类型数量统计.png")
 plt.show()
 
-'''df1 = df.loc[:, ["导演姓名", "期间", "导演脸书", "总计", "年份", "喜欢人数"]]
+'''
+df1 = df.loc[:, ["导演姓名", "期间", "导演脸书", "总计", "年份", "喜欢人数"]]
 print(df1)
 print(df1[(80000 < df1["喜欢人数"]) & (100000 > df1["喜欢人数"])])
 print(df1.info())
