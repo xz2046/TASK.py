@@ -28,5 +28,6 @@ plt.ylabel("价值", fontproperties=my_font)
 plt.xlabel("年", fontproperties=my_font)
 plt.legend(prop=my_font)
 plt.title("狗狗币价值变化表", fontproperties=my_font)
+plt.savefig('./ooo.png')
 
 plt.show()

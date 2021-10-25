@@ -56,5 +56,5 @@ print(b.swaplevel())  # 交换索引
 print(b.swaplevel()['one'])  # 从内层开始取索引
 
 print('-' * 100)
-print(df_2.loc['one'].loc['h'])#复合索引取值
-print(df_2.swaplevel().loc['h'])#从内层取索引
+print(df_2.loc['one'].loc['h'])  # 复合索引取值
+print(df_2.swaplevel().loc['h'])  # 从内层取索引

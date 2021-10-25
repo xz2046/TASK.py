@@ -1,6 +1,6 @@
 import pandas as pd
 from matplotlib import pyplot as plt
-from matplotlib import font_manager
+
 
 file_path = 'E:\Python Pycharm\练习\数据分析\练习数据\PM2.5\BeijingPM20100101_20151231.csv'
 df = pd.read_csv(file_path)

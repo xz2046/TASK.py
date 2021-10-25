@@ -58,15 +58,13 @@ def handles_list(temperature):
     for i in range(0, len(temperature), 4):
         temperature_max.append(temperature[i].replace("℃", ""))
         temperature_min.append(temperature[i + 1].replace("℃", ""))
-    print(temperature_max,temperature_min)
     return temperature_max, temperature_min
 
 
 # 制作折线图
 def drawing(y_max, y_min):
     city = e1.get()
-    data = dates[4]+dates[5]
-    print(data)
+    data = dates[4] + dates[5]
 
     y_max = list(map(float, y_max))
     y_min = list(map(float, y_min))
@@ -89,7 +87,7 @@ def drawing(y_max, y_min):
 
     plt.legend(prop=my_font)
     plt.grid(alpha=0.8)
-   # plt.savefig("./{city}{data}月份每日温度变化表.png".format(city=city, data=data))
+    # plt.savefig("./{city}{data}月份每日温度变化表.png".format(city=city, data=data))
     plt.show()
 
 

@@ -1,18 +1,16 @@
 import requests
 import bs4
-import re
+import openpyxl
 
 
 def open_url(url):
     # 使用代理
     # proxies = {"http": "127.0.0.1:1080", "https": "127.0.0.1:1080"}
     headers = {
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                      'Chrome/57.0.2987.98 Safari/537.36'}
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/91.0.4472.164 Mobile Safari/537.36'}
 
-    # res = requests.get(url, headers=headers, proxies=proxies)
     res = requests.get(url, headers=headers)
-
     return res
 
 
@@ -43,7 +41,7 @@ def find_movies(res):
     result = []
     length = len(movies)
     for i in range(length):
-        result.append(movies[i] + ranks[i] + messages[i] + '\n')
+        result.append([movies[i], ranks[i], messages[i]])
 
     return result
 
@@ -54,6 +52,20 @@ def find_depth(res):
     depth = soup.find('span', class_='next').previous_sibling.previous_sibling.text
 
     return int(depth)
+
+
+def save_to_excel(result):
+    wb = openpyxl.Workbook()
+    ws = wb.active
+
+    ws['A1'] = '导演'
+    ws['B1'] = '评分'
+    ws['C1'] = '资料'
+
+    for each in result:
+        ws.append(each)
+
+    wb.save("豆瓣TOP250电影.xlsx")
 
 
 def main():
@@ -67,9 +79,7 @@ def main():
         res = open_url(url)
         result.extend(find_movies(res))
 
-    with open("豆瓣TOP250电影.txt", "w", encoding="utf-8") as f:
-        for each in result:
-            f.write(each)
+    save_to_excel(result)
 
 
 if __name__ == "__main__":

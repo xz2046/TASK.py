@@ -28,7 +28,8 @@ b = np.argmin(t3, axis=1)
 print(a, b)
 t8 = t7.copy()  # 相互不影响
 # 生成随机数
-'''rand(d0, d1, …, dn)	产生均匀分布的随机数	dn为第n维数据的维度
+'''
+rand(d0, d1, …, dn)	产生均匀分布的随机数	dn为第n维数据的维度
 randn(d0, d1, …, dn)	产生标准正态分布随机数	dn为第n维数据的维度
 randint(low[, high, size, dtype])	产生随机整数	low：最小值；high：最大值；size：数据个数
 random_sample([size])	在[0,1）内产生随机数	size：随机数的shape，可以为元祖或者列表，[2,3]表示2维随机数，维度为（2,3）
